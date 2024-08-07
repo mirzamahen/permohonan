@@ -1,0 +1,1 @@
+docker exec -i kanwil-permohonan-db mysql -upermohonan -py06y4k4rt4 permohonan < db.sql

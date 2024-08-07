@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root"; // ganti dengan username database Anda
-$password = ""; // ganti dengan password database Anda
+$servername = "kanwil-permohonan-db";
+$username = "permohonan"; // ganti dengan username database Anda
+$password = "y06y4k4rt4"; // ganti dengan password database Anda
 $dbname = "permohonan";
 
 // Buat koneksi ke database

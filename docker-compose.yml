@@ -1,0 +1,36 @@
+services:
+  php:
+    container_name: kanwil-permohonan-php
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:2006:80"
+    build:
+      context: .
+      dockerfile: php.Dockerfile
+    networks:
+      - kanwil-permohonan
+    volumes:
+      - kanwil-permohonan-php:/var/www/html/permohonan/uploads
+
+  db:
+    image: mariadb:10.4
+    container_name: kanwil-permohonan-db
+    restart: unless-stopped
+    networks:
+      - kanwil-permohonan
+    volumes:
+      - kanwil-permohonan-db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      
+
+networks:
+  kanwil-permohonan:
+    driver: bridge
+
+volumes:
+  kanwil-permohonan-php:
+  kanwil-permohonan-db:
